@@ -17,9 +17,14 @@ Please check out the video here:
 
 [![View Video](http://img.youtube.com/vi/B3F49UcYbRM/0.jpg)](http://www.youtube.com/watch?v=B3F49UcYbRM "Navigating the Gauntlet")
 
-You can also see a plot of the desired and actual path as well as the detected gauntlet and generated gradient (used for gradient descent)
-INSERT PLOT
-3d Graient pic!
+You can also see a plot of the desired and actual path as well as the detected gauntlet 
+![Gauntlet Mapping](../master/gauntlet/pics/gauntletMapping.png)
+
+As well as the generated topography (used to calulate the gradient shown above for gradient descent)
+![3d Generated Map](../master/gauntlet/pics/Gauntlet%20Mesh.png)
+
+This plot shows the original calculations with the actual traveled path overlayed
+![3d Generated Map](../master/gauntlet/pics/actualpath.png)
 
 This final plot was generated with encoder data recorded from the robot. It also appears that the robot took ~25 seconds to get to the BOB. This was a long time, the driving time is certainly less. This is due to the fact that it is scanning between each drive step and re-calculating the topography etc. This also explains why my actual plot is slightly different than the calculated plot that was made off of a single scan at the starting point. If navigating with a set path rather than re-scanning than implementing a parametric curve fit to the set points would have allowed for an implemantation of drive control that could go faster rather than driving small segments of straight lines INSERT BOD LINK
 
