@@ -3,6 +3,7 @@
 The Gauntlet challenge is to navigate a robot successfully from a starting position in to the "Bucket of Benevolence" (The cylinder) in a simulator. The challenge is to avoid the walls and obstacles present in the Gauntlet. See the picture below for what the Gauntlet looks like:
 INSERT GAUNTLET PIC
 
+
 __The High Level Plan:__
 * Use the robot's LIDAR
 * Parse Lidar to detect features
