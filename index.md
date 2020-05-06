@@ -30,11 +30,12 @@ This final plot was generated with encoder data recorded from the robot. It also
 
 
 ## Implementation Strategy and Code
+IN PROGRESS
 For the code: [View Code](/gauntlet/gauntletNav.m)
 *Please excuse this code, it is made to be able to retrieve scans in the globabl frame to plot things nicely, and parameters must be changed to drive in time steps with relative LIDAR scanning. Plotting the final path must be uncommented and ran with global frame settings with driving disabled*
 
 Broken down from into the main points above:
-### Use the robot's Lidar to obtain data about surrounding area
+### Use the robot's lidar scanner to obtain data about surrounding area
 
 ### Parse Lidar to detect features
 * How RANSAC Works
@@ -42,8 +43,17 @@ Broken down from into the main points above:
 * Problems with RANSAC and how they were addressed
     
 ### Build a potential field with sources around lines and sinks around the BOB(Bucket of Benevolence)
-* Problems wiht my potential field generation
+* Problems with my potential field generation
+   
 
 ### Calculate Gradient at robot location and drive accordingly using gradient descent
+* Robot control methods
 
-
+## How I would do this differently
+* Implement a "search" drive sequence purely to build a map of the room to navigate with
+* Calculate potential fileds in a more robust way (so that the top of a wall was "flat" and less computation time, not symbolicly maybe)
+* Interpret evrything in the global frame
+* Record position of oreintation of robot during navigation (required to interpret in global frame)
+* Add scans and data together (store and filter lidar data to build a better map of gauntlet as you travers)
+* Move robot between multiple small points according to gradient, along a curve that was fit to the points
+* This would allow for more accurate encoder path reconstruction.
