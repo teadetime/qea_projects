@@ -1,17 +1,16 @@
 # Navigating the Gauntet!
 ## The Challenge
 The Gauntlet challenge is to navigate a robot successfully from a starting position in to the "Bucket of Benevolence" (The cylinder) in a simulator. The challenge is to avoid the walls and obstacles present in the Gauntlet. See the picture below for what the Gauntlet looks like:
-INSERT GAUNTLET PIC
+![Gauntlet Top View](/gauntlet/pics/gauntletTop.PNG)
 
 
 __The High Level Plan:__
-* Use the robot's LIDAR
+* Use the robot's Lidar to obtain data about surrounding area
 * Parse Lidar to detect features
     * Use RANSAC algorithm to find circles and lines/walls
 * Build a potential field with sources around lines and sinks around the BOB(Bucket of Benevolence)
 * Calculate Gradient of this potential field
-* Calculate gradeint at robot location and drive accordingly
-
+* Calculate gradeint at robot location and drive accordingly using gradient descent
 
 ## Results
 Please check out the video here:
@@ -33,7 +32,7 @@ INSERT BOD LINK
 
 
 ## Implementation Strategy and Code
-For the code: INSERT LINK
+For the code: [View Code](/gauntlet/robustLine.m)
 
 *Please excuse this code, it is made to be able to retrieve scans in the globabl frame to plot things nicely, and parameters must be changed to drive in time steps with relative LIDAR scanning. Plotting the final path must be uncommented and ran with global frame settings with driving disabled*
 
