@@ -28,6 +28,7 @@ This plot shows the original calculations with the actual traveled path overlaye
 ![3d Generated Map](../master/gauntlet/pics/actualpath.png)
 
 This final plot was generated with encoder data recorded from the robot. It also appears that the robot took ~25 seconds to get to the BOB. This was a long time, the driving time is certainly less. This is due to the fact that it is scanning between each drive step and re-calculating the topography etc. This also explains why my actual plot is slightly different than the calculated plot that was made off of a single scan at the starting point. If navigating with a set path rather than re-scanning than implementing a parametric curve fit to the set points would have allowed for an implemantation of drive control that could go faster rather than driving small segments of straight lines 
+PLEASE UPDATE
 INSERT BOD LINK
 
 
