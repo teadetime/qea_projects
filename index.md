@@ -4,7 +4,7 @@ The Gauntlet challenge is to navigate a robot successfully from a starting posit
 ![Gauntlet Top View](/gauntlet/pics/gauntletTop.PNG)
 
 
-__The High Level Plan:__
+__The High Level Plan__ (See code and implentation section for more details)
 * Use the robot's Lidar to obtain data about surrounding area
 * Parse Lidar to detect features
     * Use RANSAC algorithm to find circles and lines/walls
@@ -32,7 +32,7 @@ INSERT BOD LINK
 
 
 ## Implementation Strategy and Code
-For the code: [View Code](/gauntlet/robustLine.m)
+For the code: [View Code](/gauntlet/gauntletNav.m)
 
 *Please excuse this code, it is made to be able to retrieve scans in the globabl frame to plot things nicely, and parameters must be changed to drive in time steps with relative LIDAR scanning. Plotting the final path must be uncommented and ran with global frame settings with driving disabled*
 
