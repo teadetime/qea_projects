@@ -74,15 +74,21 @@ __Applications to Circles/Arcs and Lines__
 Above shows how RANSAC can be used for detecting lines. All that changes in RANSAC for other types of functions are the number of points sampled and the method for determine inliers. In our case we calculate what circle best fits 3 points and then examine how many points are within threshold distance to the circle.
   
 __Problems with RANSAC and how they were addressed__
+wwds
 One problem that occured was that lines that intersected at 90* angles looked like circles to this algorithm.A collection of some side points that were straight were in the threshold to look like a valid circle. This seemed like a nasty problem, and it was solved by doing ransac on the points that were inliers of the  "found" circle. If these points on the circle actually were a circle than the calculated radius and center wpuldn't change position much. However, in the case of having two lines looking like a cirlce one iteration of ransac would look hugely different from the "found" result. If there was a large discrepancy then I assumed this was misidentified. Similar accuracy might be acheivable by simply tightening the threshold of the circle.
 
     
-### Build a potential field with sources around lines and sinks around the BOB(Bucket of Benevolence)
-* Problems with my potential field generation
-   
+__Build a potential field with sources around lines and sinks around the BOB(Bucket of Benevolence)__
 
-### Calculate Gradient at robot location and drive accordingly using gradient descent
-* Robot control methods
+The plan to navigate this obstacle course is to use gradient descent. For this to be possible there must be a function defined across the x,y grid of our map with a "height" and where the steepest direction down the topography indicates the way to the BOB and away from obstacles. This is accomplished using one simple fucntion to build a point source(high point) or sink (low point):
+f(x,y) = ln(sqrt((x-a)^2+(y-b)^2)). This creates a sink around the coordinates (a,b) to create a source this cuntionally is negated. To create line sources multiple point sources can be combined together in one function. ie: f(x,y) = ln(sqrt((x-a)^2+(y-b)^2)) - ln(sqrt((x-c)^2+(y-d)^2)). To build source and sinks these fucntioned are chained around a circle with a small spacing between points or with multiple points along a line.
+
+*Problems with my potential field generation*
+
+This is definitely a valid way of generating potential fields. However, it doens't do the best job at making the line segments. The nature of these potenital fields is to act as points and add or subtract from everythign else around them. This transaltes to a peak in the middle of a line segment. This doesn't seem to be desired behavior. It is more important to avoid the edges ob objects than the middles. Line's cna liekly be built in a more logical way that makes them more equal
+
+__Calculate Gradient at robot location and drive accordingly using gradient descent__
+A massive function is created that represents the "topography" of the gauntlet. Obstacles are high points and the BOB(destination) is the low point. Driving directions are calculated based on the negative gradient vector, which points towards the steepest descent, which in should correlate to a path that heads towards the destination and avoids obstacles. This vecor is scaled to an appropriate drive distance and then the robot changes it's orientation and drives the distance. This is done by driving the robot based on time (angular velocity and total angle change can be calculated). Distance is also driven based on time since wheel speed is known. I also tested using the simulator's encoders with little to no increase in results. Stopping the robot is achieved by listening for a bump on any part of the robot!
 
 ## How I would do this differently
 * Implement a "search" drive sequence purely to build a map of the room to navigate with
