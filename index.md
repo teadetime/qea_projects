@@ -22,7 +22,7 @@ You can also see a plot of the desired and actual path as well as the detected g
 ![Gauntlet Mapping](/gauntlet/pics/gauntletMapping.png)
 
 As well as the generated topography (used to calulate the gradient shown above for gradient descent)
-![3d Generated Map](/gauntlet/pics/Gauntlet%20Mesh.png)
+![3d Generated Map](/gauntlet/pics/gauntletMesh.png)
 
 This plot shows the original calculations with the actual traveled path overlayed
 ![3d Generated Map](/gauntlet/pics/actualpath.png)
