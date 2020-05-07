@@ -18,10 +18,11 @@ Please check out the video here:
 [![View Video](http://img.youtube.com/vi/B3F49UcYbRM/0.jpg)](http://www.youtube.com/watch?v=B3F49UcYbRM "Navigating the Gauntlet")
 
 You can also see a plot of the desired and actual path as well as the detected gauntlet
-
 ![Gauntlet Mapping](/gauntlet/pics/gauntletMapping.png)
 
 As well as the generated topography (used to calulate the gradient shown above for gradient descent)
+
+
 ![3d Generated Map](/gauntlet/pics/gauntletMesh.png)
 
 This plot shows the original calculations with the actual traveled path overlayed
